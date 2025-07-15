@@ -16,7 +16,7 @@ jobs:
         env:
           POSTGRES_DB: ecommerce_db
           POSTGRES_USER: root_user
-          POSTGRES_PASSWORD: admin@9090
+          POSTGRES_PASSWORD: admin9090
         ports:
           - 5432:5432
         options: >-
@@ -28,7 +28,7 @@ jobs:
     env:
       POSTGRES_DB: ecommerce_db
       POSTGRES_USER: root_user
-      POSTGRES_PASSWORD: admin@9090
+      POSTGRES_PASSWORD: admin9090
       POSTGRES_HOST: localhost
       POSTGRES_PORT: 5432
 
