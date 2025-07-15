@@ -13,9 +13,9 @@ services:
       - postgres
     environment:
       POSTGRES_USER: root_user
-      POSTGRES_PASSWORD: admin@9090
+      POSTGRES_PASSWORD: admin9090
       POSTGRES_DB: ecommerce_db
-      POSTGRES_HOST: postgres_db
+      POSTGRES_HOST: postgres
       POSTGRES_PORT: 5432
     networks:
       - app_network
@@ -29,7 +29,7 @@ services:
       - 5432:5432
     environment:
       POSTGRES_USER: root_user
-      POSTGRES_PASSWORD: admin@9090
+      POSTGRES_PASSWORD: admin9090
       POSTGRES_DB: ecommerce_db
     networks:
       - app_network
