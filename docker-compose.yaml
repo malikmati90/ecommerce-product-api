@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: ecommerce_api
+    build: .
+    command: sh -c "yoyo list; yoyo apply --batch; uvicorn app.main:app --host 0.0.0.0"
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_USER: root_user
+      POSTGRES_PASSWORD: admin@9090
+      POSTGRES_DB: ecommerce_db
+      POSTGRES_HOST: postgres_db
+      POSTGRES_PORT: 5432
+    networks:
+      - app_network
+
+  postgres:
+    image: postgres:14-alpine
+    container_name: ecommerce_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root_user
+      POSTGRES_PASSWORD: admin@9090
+      POSTGRES_DB: ecommerce_db
+    networks:
+      - app_network
+
+volumes:
+  postgres_data:
+
+networks:
+  app_network:
